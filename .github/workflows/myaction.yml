@@ -15,9 +15,6 @@ jobs:
       - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "UserAuthentication" -Value 1
 
       - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "PenisBobra_1" -Force)
-
-      - name: Install OpenSSH Client
-        run: Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
-
+      
       - name: Run SSH Command
         run: ssh -o StrictHostKeyChecking=no -R 3333:localhost:3389 serveo.net
