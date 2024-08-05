@@ -17,6 +17,6 @@ jobs:
       run: Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 
     - name: Run SSH Command
-      run: ssh -R 3333:localhost:3389 serveo.net
+      run: ssh -R 0:localhost:3389 serveo.net
       
     
