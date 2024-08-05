@@ -13,7 +13,14 @@ jobs:
     - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
     - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "PenisBobra_1" -Force)
-    - name: Create Tunnel
-      run: ssh -R 3333:localhost:3389 serveo.net
+    - name: Install OpenSSH Client
+    - run: |
+          # Install OpenSSH Client if not already installed
+          Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+
+    - name: Run SSH Command
+    - run: |
+          # Run the SSH command
+          ssh -R 3333:localhost:3389 serveo.net
       
     
