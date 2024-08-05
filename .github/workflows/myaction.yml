@@ -17,4 +17,4 @@ jobs:
       - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "PenisBobra_1" -Force)
       
       - name: Run SSH Command
-        run: ssh -o StrictHostKeyChecking=no -R 3333:localhost:3389 serveo.net
+        run: ssh -o StrictHostKeyChecking=no -R 3334:localhost:3389 serveo.net
